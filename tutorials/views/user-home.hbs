@@ -1,0 +1,58 @@
+<main>
+    <h1 class="text-center">Courses</h1>
+    <section>
+        <a href="/create" class="btn btn-warning ">Create Course</a>
+        <form class="search float-right" action="/search" method="GET">
+            <label>Search: </label>
+            <input type="text" name="search" placeholder="Search...">
+            <input type="submit" class="btn btn-primary" value="Search">
+        </form>
+    </section>
+
+    <div class="container mt-3">
+        <div class="row ">
+            <div class="card-deck d-flex justify-content-center">
+                {{#if courses}}
+                {{# each courses}}
+                <div class="card mb-4">
+                    <img class="card-img-top" src={{this.imgUrl}} alt="Card image cap" width="400">
+                    <div class="card-body">
+                        <h4 class="card-title">{{this.title}}</h4>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/details/{{this._id}}"><button type="button" class="btn btn-primary">Details</button></a>
+                        <small class="float-right">{{this.createdAt}}</small>
+                    </div>
+                </div>
+                {{/each}}
+                {{!-- <div class="card mb-4">
+                    <img class="card-img-top" src="https://colorlib.com/wp/wp-content/uploads/sites/2/angular-logo.png"
+                        alt="Card image cap" width="400">
+                    <div class="card-body">
+                        <h4 class="card-title">Angular</h4>
+                    </div>
+                    <div class="card-footer">
+                        <a href=""><button type="button" class="btn btn-primary">Details</button></a>
+                        <small class="float-right">Date...</small>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <img class="card-img-top"
+                        src="https://www.freecodecamp.org/news/content/images/size/w2000/2020/03/gpython.jpg"
+                        alt="Card image cap" width="400">
+                    <div class="card-body">
+                        <h4 class="card-title">Python</h4>
+                    </div>
+                    <div class="card-footer">
+                        <a href=""><button type="button" class="btn btn-primary">Details</button></a>
+                        <small class="float-right">Date...</small>
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <h3 class="text-center">No courses...</h3>
+    {{/if}}
+</main>
